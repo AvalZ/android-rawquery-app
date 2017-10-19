@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -57,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
         Cursor cursor = getContentResolver().query(uriBuilder.build(),projection,selection,null,null);
         if (cursor != null) {
             Log.d(TAG,"cursor count = " + cursor.getCount());
+            if (cursor.getCount() > 0) {
+                cursor.moveToNext();
+                // Login successful
+                ((TextView)findViewById(R.id.login_status)).setText("Logged in as " +
+                        cursor.getString(0));
+                cursor.moveToPrevious();
+            } else {
+                ((TextView)findViewById(R.id.login_status)).setText("Wrong username or password.");
+            }
             while(cursor.moveToNext()){
                 String user = cursor.getString(cursor.getColumnIndex(MyDatabase.Table1.COLUMN_NAME_USER));
                 String pass = cursor.getString(cursor.getColumnIndex(MyDatabase.Table1.COLUMN_NAME_PASS));
