@@ -1,4 +1,4 @@
-package edu.ksu.cs.benign;
+package edu.ksu.cs.rawquery;
 
 import android.provider.BaseColumns;
 

@@ -1,4 +1,4 @@
-package edu.ksu.cs.benign;
+package edu.ksu.cs.rawquery;
 
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,7 +11,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static String TAG = "Benign";
+    private static String TAG = "rawQueryApp";
     SharedPreferences prefs = null;
 
     @Override
@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Uri.Builder uriBuilder = new Uri.Builder();
-        uriBuilder.authority("edu.ksu.cs.benign.AUTH_CP");
+        uriBuilder.authority("edu.ksu.cs.rawquery.AUTH_CP");
         uriBuilder.scheme("content");
         getContentResolver().insert(uriBuilder.build(),null);
         /*SQLiteDatabase db = MyDatabaseHelper.getInstance(getApplicationContext()).getWritableDatabase();
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         String selection = MyDatabase.Table1.COLUMN_NAME_USER + " = '" + username + "'" +
                 " AND " + MyDatabase.Table1.COLUMN_NAME_PASS + " = '" + password + "'";
         Uri.Builder uriBuilder = new Uri.Builder();
-        uriBuilder.authority("edu.ksu.cs.benign.AUTH_CP");
+        uriBuilder.authority("edu.ksu.cs.rawquery.AUTH_CP");
         uriBuilder.scheme("content");
         Cursor cursor = getContentResolver().query(uriBuilder.build(),projection,selection,null,null);
         if (cursor != null) {
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         String selection = MyDatabase.Table1.COLUMN_NAME_USER + " = ? AND " + MyDatabase.Table1.COLUMN_NAME_PASS + " = ?";
         String[] selectionArgs = {"joymitro","joypass"};
         Uri.Builder uriBuilder = new Uri.Builder();
-        uriBuilder.authority("edu.ksu.cs.benign.AUTH_CP");
+        uriBuilder.authority("edu.ksu.cs.rawquery.AUTH_CP");
         uriBuilder.scheme("content");
         Cursor cursor = getContentResolver().query(uriBuilder.build(),projection,selection,selectionArgs,null);
         if (cursor != null) {

@@ -1,15 +1,14 @@
-package edu.ksu.cs.benign;
+package edu.ksu.cs.rawquery;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.util.Log;
 
 public class MyContentProvider extends ContentProvider {
 
-    private static String TAG = "Benign/MyContentProvider";
+    private static String TAG = "rawQueryApp";
 
     public MyContentProvider() {
     }

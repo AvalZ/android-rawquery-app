@@ -1,4 +1,4 @@
-package edu.ksu.cs.benign;
+package edu.ksu.cs.rawquery;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
