@@ -10,48 +10,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="edu.ksu.cs.rawquery.MainActivity">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        tools:text="name" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/username"
-        android:layout_marginTop="14dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/password"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="20dp"
-        android:onClick="buttonOnClick"
-        android:text="Submit" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="18dp"
+        android:onClick="uselessButtonClick"
+        android:text="Do nothing"
+        android:textSize="14sp" />
 
-    <TextView
-        android:id="@+id/login_status"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/button"
-        android:layout_marginTop="24dp"
-        android:text="Please Log in" />
+        android:layout_alignParentTop="true"
+        android:onClick="loginButtonClick"
+        android:text="Login"
+        android:textSize="14sp" />
+
 </RelativeLayout>
