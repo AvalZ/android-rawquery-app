@@ -22,6 +22,15 @@ public class MainActivity extends AppCompatActivity {
         Uri.Builder uriBuilder = new Uri.Builder();
         uriBuilder.authority("edu.ksu.cs.rawquery.AUTH_CP");
         uriBuilder.scheme("content");
+
+        prefs = getSharedPreferences("edu.ksu.cs.rawquery", MODE_PRIVATE);
+
+        if (prefs.getBoolean("firstrun", true)) {
+            // Do first run stuff here then set 'firstrun' as false
+            // using the following line to edit/commit prefs
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
+
         getContentResolver().insert(uriBuilder.build(),null);
         /*SQLiteDatabase db = MyDatabaseHelper.getInstance(getApplicationContext()).getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -40,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
         contentValues.put(MyDatabase.Table1.COLUMN_NAME_USER,"jamie");
         contentValues.put(MyDatabase.Table1.COLUMN_NAME_PASS,"password1234");
         db.insert(MyDatabase.Table1.TABLE_NAME,null,contentValues);*/
-
-        prefs = getSharedPreferences("edu.ksu.cs.benign", MODE_PRIVATE);
     }
 
     public void buttonOnClick(View v) {
@@ -81,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        /*
         String[] projection = {MyDatabase.Table1.COLUMN_NAME_USER,MyDatabase.Table1.COLUMN_NAME_PASS};
         String selection = MyDatabase.Table1.COLUMN_NAME_USER + " = ? AND " + MyDatabase.Table1.COLUMN_NAME_PASS + " = ?";
         String[] selectionArgs = {"joymitro","joypass"};
@@ -99,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             cursor.close();
         }
         else Log.d(TAG, "cursor is null");
+        */
 
 
         if (prefs.getBoolean("firstrun", true)) {
